@@ -37,9 +37,9 @@ app.use('/v1', routes);
 // export default app;
 
 
-app.all('*', async () => {
-  throw new NotFoundError();
-});
+// app.all('*', async () => {
+//   throw new NotFoundError();
+// });
 
 app.use(errorHandler);
 
