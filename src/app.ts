@@ -23,7 +23,7 @@ const app = express();
 // app.use(cors({
 //   origin: 'http://localhost:3000',
 // }));
-app.use(morgan('combined'));
+// app.use(morgan('combined'));
 app.use(express.json());
 app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, '..', 'public')));
@@ -37,9 +37,11 @@ app.use('/v1', routes);
 // export default app;
 
 
-// app.all('*', async () => {
-//   throw new NotFoundError();
-// });
+app.all('*', async(req,res) => {
+    // res.json({msg : "err"})
+  throw new NotFoundError();
+
+});
 
 app.use(errorHandler);
 
